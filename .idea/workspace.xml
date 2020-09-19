@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="707692c8-e338-4277-9028-b4e63611c231" name="Default Changelist" comment="jay: add all the feature into this comment include functions, test cases. also add testSample which is the same as the Examples given">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/calculatorDemo.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jay/calculator/ApplicationContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jay/calculator/OperatorCommandEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jay/calculator/RegisterBeanEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jay/calculator/facade/AbstractCalculatorFacade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jay/calculator/facade/CalculatorFacadeImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jay/calculator/service/command/CommandExecutor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jay/calculator/service/command/CommandExecutorImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jay/calculator/service/command/cmd/AbstractCalculateCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jay/calculator/service/command/cmd/CalculateCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jay/calculator/service/command/cmd/CommandAdd.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jay/calculator/service/command/cmd/CommandClear.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jay/calculator/service/command/cmd/CommandDivide.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jay/calculator/service/command/cmd/CommandMinus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jay/calculator/service/command/cmd/CommandSqrt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jay/calculator/service/command/cmd/CommandTimes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jay/calculator/service/command/cmd/CommandUndo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jay/calculator/service/command/model/ParamPairBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jay/calculator/service/command/model/UndoBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jay/calculator/service/exception/ErrorCodeEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jay/calculator/service/exception/ServiceException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/jay/test/ApplicationContextTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/jay/test/CalculatorFacadeImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/jay/test/CommandExecutorImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/jay/test/SampleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jay/calculator/facade/CalculatorFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jay/calculator/facade/CalculatorFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jay/calculator/service/InputStringAnalyzer.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\develop\apache-maven-3.6.3" />
+        <option name="userSettingsFile" value="C:\develop\apache-maven-3.6.3\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1hh1ToFCelPXFFVgZcGPS1rFbM3" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.jay.calculator.service.command.cmd" />
+      <recent name="com.jay.calculator" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\workspace\calculatorDemo" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.SampleTest">
+    <configuration name="CommandExecutorImplTest.testDivideZero" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="calculatorDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jay.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jay.test" />
+      <option name="MAIN_CLASS_NAME" value="com.jay.test.CommandExecutorImplTest" />
+      <option name="METHOD_NAME" value="testDivideZero" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="calculatorDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jay.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jay.test" />
+      <option name="MAIN_CLASS_NAME" value="com.jay.test.SampleTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleTest.sample1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="calculatorDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jay.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jay.test" />
+      <option name="MAIN_CLASS_NAME" value="com.jay.test.SampleTest" />
+      <option name="METHOD_NAME" value="sample1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleTest.sample5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="calculatorDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jay.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jay.test" />
+      <option name="MAIN_CLASS_NAME" value="com.jay.test.SampleTest" />
+      <option name="METHOD_NAME" value="sample5" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleTest.sample6" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="calculatorDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jay.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jay.test" />
+      <option name="MAIN_CLASS_NAME" value="com.jay.test.SampleTest" />
+      <option name="METHOD_NAME" value="sample6" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.SampleTest" />
+        <item itemvalue="JUnit.SampleTest.sample6" />
+        <item itemvalue="JUnit.SampleTest.sample5" />
+        <item itemvalue="JUnit.SampleTest.sample1" />
+        <item itemvalue="JUnit.CommandExecutorImplTest.testDivideZero" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="707692c8-e338-4277-9028-b4e63611c231" name="Default Changelist" comment="" />
+      <created>1600448522677</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600448522677</updated>
+    </task>
+    <task id="LOCAL-00001" summary="jay: first commit">
+      <created>1600453636607</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1600453636607</updated>
+    </task>
+    <task id="LOCAL-00002" summary="jay: update ignore file">
+      <created>1600453776203</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1600453776203</updated>
+    </task>
+    <task id="LOCAL-00003" summary="jay: add readme file">
+      <created>1600453967484</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1600453967484</updated>
+    </task>
+    <task id="LOCAL-00004" summary="jay: update ignore">
+      <created>1600454002959</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1600454002959</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="jay: first commit" />
+    <MESSAGE value="jay: update ignore file" />
+    <MESSAGE value="jay: add readme file" />
+    <MESSAGE value="jay: update ignore" />
+    <MESSAGE value="jay: add all the feature into this comment include functions, test cases. also add testSample which is the same as the Examples given" />
+    <option name="LAST_COMMIT_MESSAGE" value="jay: add all the feature into this comment include functions, test cases. also add testSample which is the same as the Examples given" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="766" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1600534049079">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="766" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1600534049079" />
+    <state x="334" y="335" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1600536413507">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="334" y="335" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1600536413507" />
+    <state x="618" y="305" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1600529014365">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="618" y="305" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1600529014365" />
+    <state width="432" height="466" key="DebuggerActiveHint" timestamp="1600507261060">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="432" height="466" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1600507261060" />
+    <state x="598" y="110" key="FileChooserDialogImpl" timestamp="1600486876440">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="598" y="110" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1600486876440" />
+    <state x="621" y="310" key="Github.ShareDialog" timestamp="1600453518102">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="621" y="310" key="Github.ShareDialog/0.0.1536.824@0.0.1536.824" timestamp="1600453518102" />
+    <state x="560" y="117" key="Github.UntrackedFilesDialog" timestamp="1600453532915">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="560" y="117" key="Github.UntrackedFilesDialog/0.0.1536.824@0.0.1536.824" timestamp="1600453532915" />
+    <state width="746" height="192" key="GridCell.Tab.0.bottom" timestamp="1600536873854">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="192" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1600536873854" />
+    <state width="746" height="192" key="GridCell.Tab.0.center" timestamp="1600536873854">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="192" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1600536873854" />
+    <state width="746" height="192" key="GridCell.Tab.0.left" timestamp="1600536873854">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="192" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1600536873854" />
+    <state width="746" height="192" key="GridCell.Tab.0.right" timestamp="1600536873854">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="192" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1600536873854" />
+    <state width="746" height="260" key="GridCell.Tab.1.bottom" timestamp="1600530430044">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="260" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1600530430044" />
+    <state width="746" height="260" key="GridCell.Tab.1.center" timestamp="1600530430044">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="260" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1600530430044" />
+    <state width="746" height="260" key="GridCell.Tab.1.left" timestamp="1600530430044">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="260" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1600530430044" />
+    <state width="746" height="260" key="GridCell.Tab.1.right" timestamp="1600530430044">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="260" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1600530430044" />
+    <state x="372" y="96" key="Maven.ArtifactSearchDialog" timestamp="1600504202848">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="372" y="96" key="Maven.ArtifactSearchDialog/0.0.1536.824@0.0.1536.824" timestamp="1600504202848" />
+    <state x="319" y="0" key="SettingsEditor" timestamp="1600486878127">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="319" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1600486878127" />
+    <state x="431" y="171" key="Vcs.Push.Dialog.v2" timestamp="1600484091149">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="171" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1600484091149" />
+    <state x="495" y="202" key="run.anything.popup" timestamp="1600534806513">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="495" y="202" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1600534806513" />
+    <state x="502" y="146" width="672" height="678" key="search.everywhere.popup" timestamp="1600535755207">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="502" y="146" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1600535755207" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jay/calculator/service/command/CommandExecutorImpl.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
