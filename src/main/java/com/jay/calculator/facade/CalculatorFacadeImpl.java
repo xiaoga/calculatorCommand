@@ -10,7 +10,12 @@ public class CalculatorFacadeImpl extends AbstractCalculatorFacade implements Ca
 
     @Override
     protected void process(String command) throws ServiceException {
-        CommandExecutor commandExecutor = (CommandExecutorImpl) ApplicationContext.getContext().get(CommandExecutorImpl.class);
-        commandExecutor.execute(command);
+        String[] commandArr = command.split(" ");
+        for (String cmd : commandArr) {
+            CommandExecutor commandExecutor = (CommandExecutorImpl) ApplicationContext.getContext().get(CommandExecutorImpl.class);
+            commandExecutor.execute(cmd);
+        }
+
     }
+
 }

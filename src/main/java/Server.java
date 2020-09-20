@@ -18,7 +18,7 @@ public class Server {
         //read input and call service here
         Scanner sc = new Scanner(System.in);
         while (sc.hasNext()) {
-            String str = sc.next();
+            String str = sc.nextLine();
             //System.out.println("["+str+"]");
             CalculatorFacade calculatorFacade=(CalculatorFacade) ApplicationContext.getContext().get(CalculatorFacadeImpl.class);
             calculatorFacade.processCommand(str);

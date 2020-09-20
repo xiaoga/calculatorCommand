@@ -10,13 +10,14 @@ public class CommandExecutorImpl implements CommandExecutor {
     @Override
     public void execute(String command) throws ServiceException {
         OperatorCommandEnum en = OperatorCommandEnum.getByOperator(command);
+        CalculateCommandBase commandBase = (CalculateCommandBase) ApplicationContext.getContext().get(CalculateCommandBase.class);
+
         boolean existOperator = en != null;
         if (existOperator) {
             Class cls = en.getCls();
             getCommandByInput(cls).processCommand();
         } else {
-            CalculateCommandBase inputCommand = (CalculateCommandBase) ApplicationContext.getContext().get(CalculateCommandBase.class);
-            inputCommand.inputData(command);
+            commandBase.inputData(command);
         }
     }
 
