@@ -33,10 +33,11 @@ public abstract class AbstractCalculateCommand implements CalculateCommand {
     }
 
     protected void setResultIn(UndoBean undoBean, String rst) {
-        undoBean.getResultInStack().push(rst);
         ApplicationContext.getUndoStack().push(undoBean);
         boolean rstExist = rst != null;
-        if (rstExist)
+        if (rstExist) {
+            undoBean.getResultInStack().push(rst);
             ApplicationContext.getContextStack().push(rst.toString());
+        }
     }
 }

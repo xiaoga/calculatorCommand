@@ -3,8 +3,6 @@ package com.jay.test;
 import com.jay.calculator.ApplicationContext;
 import com.jay.calculator.facade.CalculatorFacade;
 import com.jay.calculator.facade.CalculatorFacadeImpl;
-import com.jay.calculator.service.command.CommandExecutor;
-import com.jay.calculator.service.command.CommandExecutorImpl;
 import com.jay.calculator.service.exception.ServiceException;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,19 +19,22 @@ public class CalculatorFacadeImplTest {
 
     @Test
     public void testSample() throws ServiceException {
-        String commandLine="1 2 13 4 + * -";
+        String commandLine = "1 2 13 4 + * -";
         runArray(commandLine);
 
     }
 
     @Test
-    public void testClearAndUndo() throws ServiceException {
-        String commandLine="1 2 13 4 + 5 8 clear";
-        runArray(commandLine);
-        System.out.println(ApplicationContext.getContextStack());
-
-        commandLine="undo";
-        runArray(commandLine);
+    public void testClearAndUndo() {
+        String commandLine = "1 2 13 4 + 5 8 clear";
+        try {
+            runArray(commandLine);
+            System.out.println(ApplicationContext.getContextStack());
+            commandLine = "undo";
+            runArray(commandLine);
+        } catch (ServiceException serviceException) {
+            serviceException.printStackTrace();
+        }
         System.out.println(ApplicationContext.getContextStack());
     }
 

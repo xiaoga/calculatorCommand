@@ -17,11 +17,14 @@ public class CommandUndo implements CalculateCommand {
 
     private void takeOutResult(UndoBean undoBean) throws ServiceException {
         while (!undoBean.getResultInStack().isEmpty()) {
-            String inStr = undoBean.getResultInStack().pop();
-            String rst = ApplicationContext.getContextStack().pop();
-            boolean undoInfoMatch = inStr.equals(rst);
-            if (!undoInfoMatch) {
-                throw new ServiceException(ErrorCodeEnum.ERROR_UNDO_INFO_MISTMATCH, "undo param is:[" + inStr + "],stack param is:[" + rst + "]");
+            boolean hasElementInStack = !ApplicationContext.getContextStack().empty();
+            if (hasElementInStack) {
+                String inStr = undoBean.getResultInStack().pop();
+                String rst = ApplicationContext.getContextStack().pop();
+                boolean undoInfoMatch = inStr.equals(rst);
+                if (!undoInfoMatch) {
+                    throw new ServiceException(ErrorCodeEnum.ERROR_UNDO_INFO_MISTMATCH, "undo param is:[" + inStr + "],stack param is:[" + rst + "]");
+                }
             }
         }
     }
