@@ -30,3 +30,4 @@
 /target/classes/Server.class
 /target/classes/com/jay/calculator/service/exception/ServiceException.class
 /target/classes/com/jay/calculator/service/command/model/UndoBean.class
+/.idea/workspace.xml
