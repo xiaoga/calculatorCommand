@@ -49,3 +49,11 @@
 /.idea/modules.xml
 /target/classes/com/jay/calculator/service/command/OperatorCommandEnum.class
 /.idea/vcs.xml
+/target/classes/com/jay/calculator/service/command/cmd/CalculateCommandBase.class
+/target/classes/com/jay/calculator/service/command/CommandQueryService.class
+/target/classes/com/jay/calculator/service/command/CommandQueryServiceImpl.class
+/target/classes/com/jay/calculator/service/command/dal/DataContext.class
+/target/classes/com/jay/calculator/service/command/dal/DataDao.class
+/target/classes/com/jay/calculator/service/command/dal/DataDaoImpl.class
+/.idea/uiDesigner.xml
+/target/classes/com/jay/calculator/service/command/dal/UndoBean.class
