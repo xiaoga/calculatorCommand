@@ -57,3 +57,4 @@
 /target/classes/com/jay/calculator/service/command/dal/DataDaoImpl.class
 /.idea/uiDesigner.xml
 /target/classes/com/jay/calculator/service/command/dal/UndoBean.class
+/target/calculatorDemo-2.0-SNAPSHOT-jar-with-dependencies.jar
