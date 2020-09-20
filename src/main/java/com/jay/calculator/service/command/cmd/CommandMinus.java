@@ -1,12 +1,12 @@
 package com.jay.calculator.service.command.cmd;
 
 import com.jay.calculator.service.command.model.ParamPairBean;
-import com.jay.calculator.service.command.model.UndoBean;
+import com.jay.calculator.service.command.dal.UndoBean;
 import com.jay.calculator.service.exception.ServiceException;
 
 import java.math.BigDecimal;
 
-public class CommandMinus extends AbstractCalculateCommand implements CalculateCommand{
+public class CommandMinus extends CalculateCommandBase implements CalculateCommand{
     @Override
     public void processCommand() throws ServiceException {
         ParamPairBean paramPairBean = new ParamPairBean();

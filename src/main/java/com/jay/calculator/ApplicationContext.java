@@ -1,7 +1,5 @@
 package com.jay.calculator;
 
-import com.jay.calculator.service.command.model.UndoBean;
-
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
@@ -12,33 +10,8 @@ public class ApplicationContext {
     */
     private static Map<Class, Object> context = new HashMap<Class, Object>();
 
-    /**
-     * stack to save element and operators
-     */
-    private static Stack<String> contextStack = new Stack();
-
-    /**
-     * stack to save all the operations so that it can be used to do "UNDO" operation
-     */
-    private static Stack<UndoBean> undoStack = new Stack();
 
     /*setters and getters*/
-    public static Stack<String> getContextStack() {
-        return contextStack;
-    }
-
-    public static void setContextStack(Stack contextStack) {
-        ApplicationContext.contextStack = contextStack;
-    }
-
-    public static Stack<UndoBean> getUndoStack() {
-        return undoStack;
-    }
-
-    public static void setUndoStack(Stack<UndoBean> undoStack) {
-        ApplicationContext.undoStack = undoStack;
-    }
-
     public static Map<Class, Object> getContext() {
         return context;
     }
@@ -46,8 +19,6 @@ public class ApplicationContext {
     public static void setContext(Map<Class, Object> context) {
         ApplicationContext.context = context;
     }
-
-
 
     /**
      * init method to init context
@@ -77,10 +48,5 @@ public class ApplicationContext {
             beanList.add(en.getCls());
         }
         return beanList;
-    }
-
-    public static void restStacks() {
-        contextStack.removeAllElements();
-        undoStack.removeAllElements();
     }
 }

@@ -3,6 +3,8 @@ import com.jay.calculator.facade.CalculatorFacade;
 import com.jay.calculator.facade.CalculatorFacadeImpl;
 import com.jay.calculator.service.command.CommandExecutor;
 import com.jay.calculator.service.command.CommandExecutorImpl;
+import com.jay.calculator.service.command.CommandQueryService;
+import com.jay.calculator.service.command.CommandQueryServiceImpl;
 import com.jay.calculator.service.exception.ServiceException;
 
 import java.lang.reflect.InvocationTargetException;
@@ -20,7 +22,9 @@ public class Server {
             //System.out.println("["+str+"]");
             CalculatorFacade calculatorFacade=(CalculatorFacade) ApplicationContext.getContext().get(CalculatorFacadeImpl.class);
             calculatorFacade.processCommand(str);
-            System.out.println(ApplicationContext.getContextStack());
+
+            CommandQueryService commandQueryService=(CommandQueryService) ApplicationContext.getContext().get(CommandQueryServiceImpl.class);
+            System.out.println("stack:"+commandQueryService.queryStack());
 
         }
     }
