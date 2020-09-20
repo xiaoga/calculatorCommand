@@ -1,4 +1,4 @@
-package com.jay.calculator;
+package com.jay.calculator.service.command;
 
 import com.jay.calculator.service.command.cmd.*;
 

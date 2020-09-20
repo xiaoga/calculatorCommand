@@ -20,14 +20,29 @@ public class CalculatorFacadeImplTest {
     }
 
     @Test
-    public void testSample(){
+    public void testSample() throws ServiceException {
         String commandLine="1 2 13 4 + * -";
-        CalculatorFacade calculatorFacade=(CalculatorFacade) ApplicationContext.getContext().get(CalculatorFacadeImpl.class);
-        try {
-            calculatorFacade.processCommand(commandLine);
-        } catch (ServiceException e) {
-            e.printStackTrace();
-        }
+        runArray(commandLine);
 
+    }
+
+    @Test
+    public void testClearAndUndo() throws ServiceException {
+        String commandLine="1 2 13 4 + 5 8 clear";
+        runArray(commandLine);
+        System.out.println(ApplicationContext.getContextStack());
+
+        commandLine="undo";
+        runArray(commandLine);
+        System.out.println(ApplicationContext.getContextStack());
+    }
+
+    private void runArray(String line) throws ServiceException {
+        String[] arr = line.split(" ");
+        for (String cmd : arr) {
+            CalculatorFacade calculatorFacade = (CalculatorFacade) ApplicationContext.getContext().get(CalculatorFacadeImpl.class);
+            calculatorFacade.processCommand(cmd);
+        }
+        System.out.println(ApplicationContext.getContextStack());
     }
 }

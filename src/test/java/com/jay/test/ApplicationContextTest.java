@@ -1,7 +1,7 @@
 package com.jay.test;
 
 import com.jay.calculator.ApplicationContext;
-import com.jay.calculator.OperatorCommandEnum;
+import com.jay.calculator.service.command.OperatorCommandEnum;
 import org.junit.Assert;
 import org.junit.Test;
 

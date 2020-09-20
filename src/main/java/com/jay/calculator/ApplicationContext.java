@@ -7,14 +7,22 @@ import java.util.*;
 
 public class ApplicationContext {
 
+    /**
+     * application context here, all the instances of bean will be saved here
+    */
     private static Map<Class, Object> context = new HashMap<Class, Object>();
 
+    /**
+     * stack to save element and operators
+     */
     private static Stack<String> contextStack = new Stack();
 
+    /**
+     * stack to save all the operations so that it can be used to do "UNDO" operation
+     */
     private static Stack<UndoBean> undoStack = new Stack();
 
-    private static Map<String, Class> operatorCommandMap = new HashMap<String, Class>();
-
+    /*setters and getters*/
     public static Stack<String> getContextStack() {
         return contextStack;
     }
@@ -39,19 +47,23 @@ public class ApplicationContext {
         ApplicationContext.context = context;
     }
 
+
+
+    /**
+     * init method to init context
+     */
     public static void initContext() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
         registerBeanIntoContainer();
     }
 
     /**
-     * once a new service is needed you need to register it here to ensure it can be gotten from application context
+     * get beans defined in configuration ,create instances and put them into context
      */
     private static void registerBeanIntoContainer() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         List<Class> classList = getBeanListFromConfig();
         for (Class cls : classList) {
             context.put(cls, createBeanInstance(cls));
         }
-
     }
 
     private static Object createBeanInstance(Class cls) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
@@ -65,5 +77,10 @@ public class ApplicationContext {
             beanList.add(en.getCls());
         }
         return beanList;
+    }
+
+    public static void restStacks() {
+        contextStack.removeAllElements();
+        undoStack.removeAllElements();
     }
 }
