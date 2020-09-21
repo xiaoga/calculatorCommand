@@ -1,16 +1,16 @@
 package com.jay.test;
 
-import com.jay.calculator.ApplicationContext;
-import com.jay.calculator.facade.CalculatorFacade;
-import com.jay.calculator.facade.CalculatorFacadeImpl;
-import com.jay.calculator.service.command.CommandExecutor;
-import com.jay.calculator.service.command.CommandExecutorImpl;
-import com.jay.calculator.service.command.CommandQueryService;
-import com.jay.calculator.service.command.CommandQueryServiceImpl;
-import com.jay.calculator.service.command.dal.DataDao;
-import com.jay.calculator.service.command.dal.DataDaoImpl;
-import com.jay.calculator.service.exception.ErrorCodeEnum;
-import com.jay.calculator.service.exception.ServiceException;
+import com.jay.calculator.calculate.CalculatorFacade;
+import com.jay.calculator.calculate.CalculatorFacadeImpl;
+import com.jay.calculator.command.CommandExecutor;
+import com.jay.calculator.command.CommandExecutorImpl;
+import com.jay.calculator.command.CommandQueryService;
+import com.jay.calculator.command.CommandQueryServiceImpl;
+import com.jay.calculator.command.dal.DataDao;
+import com.jay.calculator.command.dal.DataDaoImpl;
+import com.jay.calculator.common.exception.ErrorCodeEnum;
+import com.jay.calculator.common.exception.ServiceException;
+import com.jay.calculator.container.ApplicationContext;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -121,12 +121,9 @@ public class SampleTest {
     }
 
     private void runArray(String line) throws ServiceException {
-        System.out.println("input:"+line);
-        String[] arr = line.split(" ");
-        for (String cmd : arr) {
-            CalculatorFacade calculatorFacade = (CalculatorFacade) ApplicationContext.getContext().get(CalculatorFacadeImpl.class);
-            calculatorFacade.processCommand(cmd);
-        }
+        System.out.println(line);
+        CalculatorFacade calculatorFacade = (CalculatorFacade) ApplicationContext.getContext().get(CalculatorFacadeImpl.class);
+        calculatorFacade.processCommand(line);
         System.out.println("stack:" + commandQueryService.queryStack());
     }
 

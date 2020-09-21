@@ -147,4 +147,4 @@ apart from that i worte all the cases following the "Example" , see below.
 
 ======Example8=======
 
-com.jay.calculator.service.exception.ServiceException: insufficient numbers! 
+ServiceException: insufficient numbers!

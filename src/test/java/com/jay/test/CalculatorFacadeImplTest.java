@@ -1,13 +1,13 @@
 package com.jay.test;
 
-import com.jay.calculator.ApplicationContext;
-import com.jay.calculator.facade.CalculatorFacade;
-import com.jay.calculator.facade.CalculatorFacadeImpl;
-import com.jay.calculator.service.command.CommandQueryService;
-import com.jay.calculator.service.command.CommandQueryServiceImpl;
-import com.jay.calculator.service.command.dal.DataDao;
-import com.jay.calculator.service.command.dal.DataDaoImpl;
-import com.jay.calculator.service.exception.ServiceException;
+import com.jay.calculator.calculate.CalculatorFacade;
+import com.jay.calculator.calculate.CalculatorFacadeImpl;
+import com.jay.calculator.command.CommandQueryService;
+import com.jay.calculator.command.CommandQueryServiceImpl;
+import com.jay.calculator.command.dal.DataDao;
+import com.jay.calculator.command.dal.DataDaoImpl;
+import com.jay.calculator.common.exception.ServiceException;
+import com.jay.calculator.container.ApplicationContext;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -28,13 +28,17 @@ public class CalculatorFacadeImplTest {
 
     @Test
     public void testSample() throws ServiceException {
+        dataDao.resetStack();
+        dataDao.resetUndoStack();
         String commandLine = "1 2 13 4 + * -";
         runArray(commandLine);
-
+        System.out.println(dataDao.getStack());
     }
 
     @Test
-    public void testClearAndUndo() {
+    public void testClearAndUndo() throws ServiceException {
+        dataDao.resetStack();
+        dataDao.resetUndoStack();
         String commandLine = "1 2 13 4 + 5 8 clear";
         try {
             runArray(commandLine);
@@ -48,12 +52,9 @@ public class CalculatorFacadeImplTest {
     }
 
     private void runArray(String line) throws ServiceException {
-        String[] arr = line.split(" ");
-        for (String cmd : arr) {
-            CalculatorFacade calculatorFacade = (CalculatorFacade) ApplicationContext.getContext().get(CalculatorFacadeImpl.class);
-            calculatorFacade.processCommand(cmd);
-        }
-        System.out.println("stack:" + commandQueryService.queryStack());
+        CalculatorFacade calculatorFacade = (CalculatorFacade) ApplicationContext.getContext().get(CalculatorFacadeImpl.class);
+        calculatorFacade.processCommand(line);
+        // System.out.println("stack:" + commandQueryService.queryStack());
     }
 
     private void resetStacks() {
