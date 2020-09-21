@@ -27,7 +27,7 @@ public class CommandExecutorImplTest {
     }
 
     @Test
-    public void testAddCommand() throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException, ServiceException {
+    public void testAddCommand() throws ServiceException {
         resetStacks();
 
         String input1 = "11";
@@ -38,12 +38,12 @@ public class CommandExecutorImplTest {
         request1.setCommand(input1);
 
         CommandExecutorRequest request2 = new CommandExecutorRequest();
-        request1.setPosition(0);
-        request1.setCommand(input2);
+        request2.setPosition(0);
+        request2.setCommand(input2);
 
         CommandExecutorRequest request3 = new CommandExecutorRequest();
-        request1.setPosition(0);
-        request1.setCommand(input3);
+        request3.setPosition(0);
+        request3.setCommand(input3);
 
         executor.execute(request1);
         executor.execute(request2);
@@ -64,12 +64,13 @@ public class CommandExecutorImplTest {
         request1.setCommand(input1);
 
         CommandExecutorRequest request2 = new CommandExecutorRequest();
-        request1.setPosition(0);
-        request1.setCommand(input2);
+        request2.setPosition(0);
+        request2.setCommand(input2);
 
         CommandExecutorRequest request3 = new CommandExecutorRequest();
-        request1.setPosition(0);
-        request1.setCommand(input3);
+        request3.setPosition(0);
+        request3.setCommand(input3);
+
 
         executor.execute(request1);
         executor.execute(request2);
@@ -92,12 +93,13 @@ public class CommandExecutorImplTest {
         request1.setCommand(input1);
 
         CommandExecutorRequest request2 = new CommandExecutorRequest();
-        request1.setPosition(0);
-        request1.setCommand(input2);
+        request2.setPosition(0);
+        request2.setCommand(input2);
 
         CommandExecutorRequest request3 = new CommandExecutorRequest();
-        request1.setPosition(0);
-        request1.setCommand(input3);
+        request3.setPosition(0);
+        request3.setCommand(input3);
+
 
         executor.execute(request1);
         executor.execute(request2);
@@ -118,12 +120,13 @@ public class CommandExecutorImplTest {
         request1.setCommand(input1);
 
         CommandExecutorRequest request2 = new CommandExecutorRequest();
-        request1.setPosition(0);
-        request1.setCommand(input2);
+        request2.setPosition(0);
+        request2.setCommand(input2);
 
         CommandExecutorRequest request3 = new CommandExecutorRequest();
-        request1.setPosition(0);
-        request1.setCommand(input3);
+        request3.setPosition(0);
+        request3.setCommand(input3);
+
 
         executor.execute(request1);
         executor.execute(request2);
@@ -145,12 +148,12 @@ public class CommandExecutorImplTest {
             request1.setCommand(input1);
 
             CommandExecutorRequest request2 = new CommandExecutorRequest();
-            request1.setPosition(0);
-            request1.setCommand(input2);
+            request2.setPosition(0);
+            request2.setCommand(input2);
 
             CommandExecutorRequest request3 = new CommandExecutorRequest();
-            request1.setPosition(0);
-            request1.setCommand(input3);
+            request3.setPosition(0);
+            request3.setCommand(input3);
 
             executor.execute(request1);
             executor.execute(request2);

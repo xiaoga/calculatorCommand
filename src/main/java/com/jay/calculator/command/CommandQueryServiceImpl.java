@@ -17,8 +17,9 @@ public class CommandQueryServiceImpl implements CommandQueryService {
         int size = dataDao.getStack().size();
         String array[] = new String[size];
 
-        for (int i = size - 1; i >= 0; i--) {
-            String element = dataDao.getStack().pop();
+        // deal with data in stack
+        for (int i = 0; i < size; i++) {
+            String element = dataDao.getStack().get(i);
             CommandNumber number = new CommandNumber(element);
             array[i] = number.getBigDecimal10().toString();
         }

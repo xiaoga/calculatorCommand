@@ -23,9 +23,11 @@ public class CommandExecutorImpl implements CommandExecutor {
                 getCommandByInput(cls).processCommand();
             } catch (ServiceException e) {
                 boolean insufficientParam = e.getErrorCodeEnum().equals(ErrorCodeEnum.ERROR_INSUFFICIENT_PARAM);
-                Integer position = request.getPosition();
-                //[requirement] to meet the requirement of error printing
-                throw new ServiceException(ErrorCodeEnum.ERROR_INSUFFICIENT_PARAM, "operator <" + command + "> (position:" + position + "): insufficient parameters");
+                if (insufficientParam) {
+                    Integer position = request.getPosition();
+                    //[requirement] to meet the requirement of error printing
+                    throw new ServiceException(ErrorCodeEnum.ERROR_INSUFFICIENT_PARAM, "operator <" + command + "> (position:" + position + "): insufficient parameters");
+                }
             }
         } else {
             commandBase.inputData(command);
