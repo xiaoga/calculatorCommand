@@ -14,13 +14,13 @@ import org.junit.Test;
 
 import java.lang.reflect.InvocationTargetException;
 
-public class CommandExecutorImplTest {
+public class CommandExecutorImplTest extends BaseTest {
     private DataDao dataDao;
     private CommandExecutor executor;
 
     @Before
-    public void initContext() throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
-        ApplicationContext.initContext();
+    public void initContext() {
+
         dataDao = (DataDao) ApplicationContext.getContext().get(DataDaoImpl.class);
         executor = (CommandExecutor) ApplicationContext.getContext().get(CommandExecutorImpl.class);
 
@@ -33,22 +33,11 @@ public class CommandExecutorImplTest {
         String input1 = "11";
         String input2 = "22";
         String input3 = "+";
-        CommandExecutorRequest request1 = new CommandExecutorRequest();
-        request1.setPosition(0);
-        request1.setCommand(input1);
 
-        CommandExecutorRequest request2 = new CommandExecutorRequest();
-        request2.setPosition(0);
-        request2.setCommand(input2);
-
-        CommandExecutorRequest request3 = new CommandExecutorRequest();
-        request3.setPosition(0);
-        request3.setCommand(input3);
-
-        executor.execute(request1);
-        executor.execute(request2);
+        executor.execute(input1);
+        executor.execute(input2);
         System.out.println("stack:" + dataDao.getStack());
-        executor.execute(request3);
+        executor.execute(input3);
 
     }
 
@@ -63,19 +52,10 @@ public class CommandExecutorImplTest {
         request1.setPosition(0);
         request1.setCommand(input1);
 
-        CommandExecutorRequest request2 = new CommandExecutorRequest();
-        request2.setPosition(0);
-        request2.setCommand(input2);
-
-        CommandExecutorRequest request3 = new CommandExecutorRequest();
-        request3.setPosition(0);
-        request3.setCommand(input3);
-
-
-        executor.execute(request1);
-        executor.execute(request2);
+        executor.execute(input1);
+        executor.execute(input2);
         System.out.println("stack:" + dataDao.getStack());
-        executor.execute(request3);
+        executor.execute(input3);
 
     }
 
@@ -88,23 +68,10 @@ public class CommandExecutorImplTest {
         String input2 = "22";
         String input3 = "/";
 
-        CommandExecutorRequest request1 = new CommandExecutorRequest();
-        request1.setPosition(0);
-        request1.setCommand(input1);
-
-        CommandExecutorRequest request2 = new CommandExecutorRequest();
-        request2.setPosition(0);
-        request2.setCommand(input2);
-
-        CommandExecutorRequest request3 = new CommandExecutorRequest();
-        request3.setPosition(0);
-        request3.setCommand(input3);
-
-
-        executor.execute(request1);
-        executor.execute(request2);
+        executor.execute(input1);
+        executor.execute(input2);
         System.out.println("stack:" + dataDao.getStack());
-        executor.execute(request3);
+        executor.execute(input3);
 
     }
 
@@ -115,23 +82,10 @@ public class CommandExecutorImplTest {
         String input1 = "11";
         String input2 = "22";
         String input3 = "*";
-        CommandExecutorRequest request1 = new CommandExecutorRequest();
-        request1.setPosition(0);
-        request1.setCommand(input1);
-
-        CommandExecutorRequest request2 = new CommandExecutorRequest();
-        request2.setPosition(0);
-        request2.setCommand(input2);
-
-        CommandExecutorRequest request3 = new CommandExecutorRequest();
-        request3.setPosition(0);
-        request3.setCommand(input3);
-
-
-        executor.execute(request1);
-        executor.execute(request2);
+        executor.execute(input1);
+        executor.execute(input2);
         System.out.println("stack:" + dataDao.getStack());
-        executor.execute(request3);
+        executor.execute(input3);
 
     }
 
@@ -143,22 +97,10 @@ public class CommandExecutorImplTest {
             String input1 = "11";
             String input2 = "0";
             String input3 = "/";
-            CommandExecutorRequest request1 = new CommandExecutorRequest();
-            request1.setPosition(0);
-            request1.setCommand(input1);
-
-            CommandExecutorRequest request2 = new CommandExecutorRequest();
-            request2.setPosition(0);
-            request2.setCommand(input2);
-
-            CommandExecutorRequest request3 = new CommandExecutorRequest();
-            request3.setPosition(0);
-            request3.setCommand(input3);
-
-            executor.execute(request1);
-            executor.execute(request2);
+            executor.execute(input1);
+            executor.execute(input2);
             System.out.println("stack:" + dataDao.getStack());
-            executor.execute(request3);
+            executor.execute(input3);
         } catch (ServiceException e) {
             System.out.println("exception: " + e.getErrorCodeEnum());
             Assert.assertEquals(e.getErrorCodeEnum(), ErrorCodeEnum.ERROR_DENOMINATOR_IS_ZERO);

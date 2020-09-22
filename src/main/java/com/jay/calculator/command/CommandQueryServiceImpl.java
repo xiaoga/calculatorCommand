@@ -5,7 +5,9 @@ import com.jay.calculator.command.dal.DataDaoImpl;
 import com.jay.calculator.command.model.CommandNumber;
 import com.jay.calculator.common.exception.ServiceException;
 import com.jay.calculator.container.ApplicationContext;
+import com.jay.calculator.container.bean.Service;
 
+@Service
 public class CommandQueryServiceImpl implements CommandQueryService {
 
     //[requirement]

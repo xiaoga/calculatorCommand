@@ -17,7 +17,7 @@ import org.junit.Test;
 
 import java.lang.reflect.InvocationTargetException;
 
-public class SampleTest {
+public class SampleTest extends BaseTest{
 
 
     private DataDao dataDao;
@@ -26,7 +26,7 @@ public class SampleTest {
 
     @Before
     public void initContext() throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
-        ApplicationContext.initContext();
+
         dataDao = (DataDao) ApplicationContext.getContext().get(DataDaoImpl.class);
         executor = (CommandExecutor) ApplicationContext.getContext().get(CommandExecutorImpl.class);
         commandQueryService = (CommandQueryService) ApplicationContext.getContext().get(CommandQueryServiceImpl.class);

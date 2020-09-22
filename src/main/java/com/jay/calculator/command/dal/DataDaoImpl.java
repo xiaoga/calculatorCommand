@@ -3,9 +3,11 @@ package com.jay.calculator.command.dal;
 import com.jay.calculator.command.model.CommandNumber;
 import com.jay.calculator.common.exception.ErrorCodeEnum;
 import com.jay.calculator.common.exception.ServiceException;
+import com.jay.calculator.container.bean.Service;
 
 import java.util.Stack;
 
+@Service
 public class DataDaoImpl implements DataDao {
     @Override
     public String popFromStack() throws ServiceException {

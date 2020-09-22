@@ -4,10 +4,12 @@ import com.jay.calculator.command.OperatorCommandEnum;
 import com.jay.calculator.command.model.ParamPairBean;
 import com.jay.calculator.command.dal.UndoBean;
 import com.jay.calculator.common.exception.ServiceException;
-import com.jay.calculator.container.ManInfo;
+import com.jay.calculator.command.ManInfo;
+import com.jay.calculator.container.bean.Service;
 
 import java.math.BigDecimal;
 
+@Service()
 @ManInfo(command= OperatorCommandEnum.MINUS,usage = "'-'. sample: 4-1=3, you need to input '4 1 -' and out put wii be '3'")
 public class CommandMinus extends CalculateCommandBase implements CalculateCommand{
     @Override

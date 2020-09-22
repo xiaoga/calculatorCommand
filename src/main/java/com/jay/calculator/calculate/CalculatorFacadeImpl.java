@@ -4,7 +4,9 @@ import com.jay.calculator.calculate.commandline.CommandLine;
 import com.jay.calculator.common.exception.ErrorCodeEnum;
 import com.jay.calculator.common.exception.ServiceException;
 import com.jay.calculator.container.ApplicationContext;
+import com.jay.calculator.container.bean.Service;
 
+@Service()
 public class CalculatorFacadeImpl extends AbstractCalculatorFacade implements CalculatorFacade {
 
     @Override

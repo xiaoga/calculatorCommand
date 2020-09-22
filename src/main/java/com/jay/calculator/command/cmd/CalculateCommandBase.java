@@ -8,9 +8,11 @@ import com.jay.calculator.command.model.ParamPairBean;
 import com.jay.calculator.common.exception.ErrorCodeEnum;
 import com.jay.calculator.common.exception.ServiceException;
 import com.jay.calculator.container.ApplicationContext;
+import com.jay.calculator.container.bean.Service;
 
 import java.math.BigDecimal;
 
+@Service()
 public class CalculateCommandBase {
 
     public void inputData(String command) throws ServiceException {

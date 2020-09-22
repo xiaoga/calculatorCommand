@@ -4,9 +4,10 @@ import com.jay.calculator.command.OperatorCommandEnum;
 import com.jay.calculator.command.dal.UndoBean;
 import com.jay.calculator.common.exception.ErrorCodeEnum;
 import com.jay.calculator.common.exception.ServiceException;
-import com.jay.calculator.container.ManInfo;
+import com.jay.calculator.command.ManInfo;
+import com.jay.calculator.container.bean.Service;
 
-
+@Service()
 @ManInfo(command= OperatorCommandEnum.UNDO,usage = "'undo'. undo the last operate you did")
 public class CommandUndo extends CalculateCommandBase implements CalculateCommand {
     @Override

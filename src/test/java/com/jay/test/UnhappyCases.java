@@ -8,46 +8,42 @@ import com.jay.calculator.command.dal.DataDao;
 import com.jay.calculator.command.dal.DataDaoImpl;
 import com.jay.calculator.common.exception.ServiceException;
 import com.jay.calculator.container.ApplicationContext;
+import com.jay.calculator.container.bean.BeanFactory;
+import com.jay.calculator.container.bean.Service;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
-public class CalculatorFacadeImplTest extends BaseTest {
+@Service
+public class UnhappyCases {
+    private CalculatorFacade calculatorFacade;
     private CommandQueryService commandQueryService;
     private DataDao dataDao;
 
     @Before
-    public void initContext() throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
+    public void initContext() throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException, IOException {
+        // ApplicationContext.initContext();
+        BeanFactory.initBean();
         System.out.println(ApplicationContext.getContext());
         commandQueryService = (CommandQueryService) ApplicationContext.getContext().get(CommandQueryServiceImpl.class);
         dataDao = (DataDao) ApplicationContext.getContext().get(DataDaoImpl.class);
+        calculatorFacade = (CalculatorFacade) ApplicationContext.getContext().get(CalculatorFacadeImpl.class);
 
     }
 
+    /*if we do not set scale and round type for divide it will occur some issues*/
     @Test
-    public void testSample() throws ServiceException {
-        dataDao.resetStack();
-        dataDao.resetUndoStack();
-        String commandLine = "1 2 13 4 + * -";
-        runArray(commandLine);
-        System.out.println(dataDao.getStack());
+    public void test4Divide3() throws ServiceException {
+        String line = "4 3 /";
+        calculatorFacade.processCommand(line);
+        System.out.println(commandQueryService.queryStack());
     }
 
-    @Test
-    public void testClearAndUndo() throws ServiceException {
+    private void resetStacks() {
         dataDao.resetStack();
         dataDao.resetUndoStack();
-        String commandLine = "1 2 13 4 + 5 8 clear";
-        try {
-            runArray(commandLine);
-            System.out.println("stack:" + commandQueryService.queryStack());
-            commandLine = "undo";
-            runArray(commandLine);
-        } catch (ServiceException serviceException) {
-            serviceException.printStackTrace();
-        }
-        System.out.println("stack:" + commandQueryService.queryStack());
     }
 
     private void runArray(String line) throws ServiceException {
@@ -56,8 +52,5 @@ public class CalculatorFacadeImplTest extends BaseTest {
         // System.out.println("stack:" + commandQueryService.queryStack());
     }
 
-    private void resetStacks() {
-        dataDao.resetStack();
-        dataDao.resetUndoStack();
-    }
 }
+

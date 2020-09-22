@@ -4,11 +4,12 @@ import com.jay.calculator.command.OperatorCommandEnum;
 import com.jay.calculator.command.dal.UndoBean;
 import com.jay.calculator.common.exception.ErrorCodeEnum;
 import com.jay.calculator.common.exception.ServiceException;
-import com.jay.calculator.container.ManInfo;
+import com.jay.calculator.command.ManInfo;
+import com.jay.calculator.container.bean.Service;
 
 import java.math.BigDecimal;
 
-
+@Service()
 @ManInfo(command= OperatorCommandEnum.SQRT,usage = "'sqrt'. sample: 4 sqrt=2, you need to input '4 sqrt' and out put wii be '2'")
 public class CommandSqrt extends CalculateCommandBase implements CalculateCommand {
     @Override
