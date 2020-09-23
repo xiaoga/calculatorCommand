@@ -45,10 +45,6 @@ public class DataDaoImpl implements DataDao {
         return DataContext.getContextStack().isEmpty();
     }
 
-    @Override
-    public boolean undoStackIsEmpty() {
-        return DataContext.getUndoStack().isEmpty();
-    }
 
     @Override
     public void resetStack() {

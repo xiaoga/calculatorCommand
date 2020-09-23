@@ -24,16 +24,8 @@ public enum CommandLineEnum {
         return commandLine;
     }
 
-    public void setOperator(String commandLine) {
-        this.commandLine = commandLine;
-    }
-
     public Class getCls() {
         return cls;
-    }
-
-    public void setCls(Class cls) {
-        this.cls = cls;
     }
 
     public static CommandLineEnum getByCommandLine(String commandLine) {

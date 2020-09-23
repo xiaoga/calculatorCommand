@@ -16,7 +16,7 @@ public interface DataDao {
 
     boolean stackIsEmpty();
 
-    boolean undoStackIsEmpty();
+    //boolean undoStackIsEmpty();
 
     void resetStack();
 

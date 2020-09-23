@@ -26,16 +26,8 @@ public enum OperatorCommandEnum {
         return operator;
     }
 
-    public void setOperator(String operator) {
-        this.operator = operator;
-    }
-
     public Class getCls() {
         return cls;
-    }
-
-    public void setCls(Class cls) {
-        this.cls = cls;
     }
 
     public static OperatorCommandEnum getByOperator(String operator) {

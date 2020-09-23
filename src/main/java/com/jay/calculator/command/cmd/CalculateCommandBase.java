@@ -24,8 +24,8 @@ public class CalculateCommandBase {
         try {
             String secondElement = this.getSingleParamFromStack(undoBean);
             String firstElement = this.getSingleParamFromStack(undoBean);
-            BigDecimal secondNumber = this.parseElementToBigDecimal(secondElement);
-            BigDecimal firstNumber = this.parseElementToBigDecimal(firstElement);
+            BigDecimal secondNumber = new BigDecimal(secondElement);
+            BigDecimal firstNumber = new BigDecimal(firstElement);
             paramPairBean.setFirstNumber(firstNumber);
             paramPairBean.setSecondNumber(secondNumber);
         } catch (ServiceException e) {
@@ -52,14 +52,6 @@ public class CalculateCommandBase {
     protected String popFromStack() throws ServiceException {
         DataDao dataDao = (DataDao) ApplicationContext.getContext().get(DataDaoImpl.class);
         return dataDao.popFromStack();
-    }
-
-    private BigDecimal parseElementToBigDecimal(String element) throws ServiceException {
-        try {
-            return new BigDecimal(element);
-        } catch (Exception exception) {
-            throw new ServiceException(ErrorCodeEnum.ERROR_PARAM_IS_NOT_NUMBER, "number format exception, element is:[" + element + "]", exception);
-        }
     }
 
     /*the method below deal with both contextStack and undoStack*/

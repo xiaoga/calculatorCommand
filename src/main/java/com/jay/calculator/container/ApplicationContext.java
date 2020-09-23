@@ -10,14 +10,9 @@ public class ApplicationContext {
      */
     private static Map<Class<?>, Object> context = new HashMap<Class<?>, Object>();
 
-
     /*setters and getters*/
     public static Map<Class<?>, Object> getContext() {
         return context;
-    }
-
-    public static void setContext(Map<Class<?>, Object> context) {
-        ApplicationContext.context = context;
     }
 
 }

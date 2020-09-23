@@ -41,28 +41,12 @@ public class CommandNumber {
         return bigDecimal;
     }
 
-    public String getStrNumber() {
-        return strNumber;
-    }
-
-    public void setStrNumber(String strNumber) {
-        this.strNumber = strNumber;
-    }
-
     public BigDecimal getBigDecimal10() {
         return bigDecimal10;
     }
 
-    public void setBigDecimal10(BigDecimal bigDecimal10) {
-        this.bigDecimal10 = bigDecimal10;
-    }
-
     public BigDecimal getBigDecimal15() {
         return bigDecimal15;
-    }
-
-    public void setBigDecimal15(BigDecimal bigDecimal15) {
-        this.bigDecimal15 = bigDecimal15;
     }
 
     @Override

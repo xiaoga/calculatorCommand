@@ -18,15 +18,7 @@ public class DataContext {
         return contextStack;
     }
 
-    public static void setContextStack(Stack<String> contextStack) {
-        DataContext.contextStack = contextStack;
-    }
-
     public static Stack<UndoBean> getUndoStack() {
         return undoStack;
-    }
-
-    public static void setUndoStack(Stack<UndoBean> undoStack) {
-        DataContext.undoStack = undoStack;
     }
 }
