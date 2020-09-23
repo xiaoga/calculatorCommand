@@ -1,9 +1,10 @@
-package com.jay.test;
+package com.jay.test.internal;
 
 import com.jay.calculator.command.OperatorCommandEnum;
 import com.jay.calculator.container.ApplicationContext;
 import com.jay.calculator.container.FilePathClassLoader;
 import com.jay.calculator.container.bean.BeanFactory;
+import com.jay.test.BaseTest;
 import com.jay.test.application.TestContainerStarter;
 import org.junit.Assert;
 import org.junit.Test;
@@ -11,7 +12,7 @@ import org.junit.Test;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
-public class testContainerStarterTest extends BaseTest{
+public class testContainerStarterTest extends BaseTest {
 
     @Test
     public void testEnumSucc() {

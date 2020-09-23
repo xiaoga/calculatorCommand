@@ -32,14 +32,7 @@
 /target/classes/com/jay/calculator/service/command/model/UndoBean.class
 /.idea/workspace.xml
 /calculatorDemo.iml
-/target/surefire-reports/com.jay.test.ApplicationContextTest.txt
-/target/surefire-reports/com.jay.test.CalculatorFacadeImplTest.txt
-/target/surefire-reports/com.jay.test.CommandExecutorImplTest.txt
-/target/surefire-reports/com.jay.test.SampleTest.txt
-/target/surefire-reports/TEST-com.jay.test.ApplicationContextTest.xml
-/target/surefire-reports/TEST-com.jay.test.CalculatorFacadeImplTest.xml
-/target/surefire-reports/TEST-com.jay.test.CommandExecutorImplTest.xml
-/target/surefire-reports/TEST-com.jay.test.SampleTest.xml
+
 /.idea/compiler.xml
 /.idea/encodings.xml
 /.idea/jarRepositories.xml
@@ -95,8 +88,6 @@
 /target/classes/com/jay/calculator/common/exception/ServiceException.class
 /target/test-classes/com/jay/test/TestNumber.class
 /target/classes/com/jay/calculator/command/dal/UndoBean.class
-/target/surefire-reports/com.jay.test.TestNumber.txt
-/target/surefire-reports/TEST-com.jay.test.TestNumber.xml
 /target/classes/com/jay/calculator/container/bean/AutoWire.class
 /target/test-classes/com/jay/test/BaseTest.class
 /target/classes/com/jay/calculator/container/bean/BeanFactory.class
@@ -104,11 +95,3 @@
 /target/classes/com/jay/calculator/command/ManInfo.class
 /target/test-classes/com/jay/test/application/RegisterBeanEnum.class
 /target/classes/com/jay/calculator/container/bean/Service.class
-/target/test-classes/com/jay/test/TestBigDecimal.class
-/target/test-classes/com/jay/test/application/TestContainerStarter.class
-/target/test-classes/com/jay/test/testContainerStarterTest.class
-/target/test-classes/com/jay/test/UnhappyCases.class
-/target/surefire-reports/com.jay.test.TestBigDecimal.txt
-/target/surefire-reports/com.jay.test.testContainerStarterTest.txt
-/target/surefire-reports/TEST-com.jay.test.TestBigDecimal.xml
-/target/surefire-reports/TEST-com.jay.test.testContainerStarterTest.xml

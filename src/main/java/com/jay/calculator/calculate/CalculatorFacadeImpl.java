@@ -11,19 +11,27 @@ public class CalculatorFacadeImpl extends AbstractCalculatorFacade implements Ca
 
     @Override
     protected void process(String command) throws ServiceException {
-        CommandLine commandLine=this.getCommandLineByInput(command);
+        CommandLine commandLine = this.getCommandLineByInput(command);
         commandLine.doCommand(command);
-
     }
 
+    /**
+     * get commandLine instance from context by the enum we get from input
+     */
     private CommandLine getCommandLineByInput(String CommandLine) throws ServiceException {
         CommandLineEnum cmdLineEnum = this.getCommandLineEnum(CommandLine);
-        CommandLine commandLine = (CommandLine) ApplicationContext.getContext().get(cmdLineEnum.getCls());
-        return commandLine;
+        return (CommandLine) ApplicationContext.getContext().get(cmdLineEnum.getCls());
     }
 
+
+    /**
+     * to identify the commandline
+     * it the command is null, throw exception
+     * if the command is some special ones which can match the ones defined in "CommandLineEnum" ,directly choose that enum.
+     * if the command is not null and not match enum directly, then that will be CommandLineEnum.CALCULATE
+     */
     private CommandLineEnum getCommandLineEnum(String CommandLine) throws ServiceException {
-        boolean commandIsNull = CommandLine == null && CommandLine.trim().length() != 0;
+        boolean commandIsNull = CommandLine == null || CommandLine.trim().length() == 0;
         if (commandIsNull) {
             throw new ServiceException(ErrorCodeEnum.ERROR_COMMANDLINE_EMPTY, "command line is empty");
         }

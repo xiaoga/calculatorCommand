@@ -4,14 +4,13 @@ import com.jay.calculator.common.exception.ServiceException;
 
 /**
  * @author jay
- * @comment this is the facade of calculator
+ * this is the facade of calculator
 */
 public interface CalculatorFacade {
 
     /**
-     * to process command here
-     * @param  command
-     * @return void
+     * to process commandline here
+     * @param  commandLine it is the command line
     */
-    void processCommand(String command) throws ServiceException;
+    void processCommand(String commandLine) throws ServiceException;
 }

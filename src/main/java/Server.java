@@ -14,27 +14,30 @@ public class Server {
 
     public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException, ServiceException, IOException {
         //init context here
-        //ApplicationContext.initContext();
         BeanFactory.initBean();
-        System.out.println("context is:"+ApplicationContext.getContext());
+        System.out.println("context is:" + ApplicationContext.getContext());
         //get query service
         CommandQueryService commandQueryService = (CommandQueryService) ApplicationContext.getContext().get(CommandQueryServiceImpl.class);
-        //read input and call service here
+        //read input
         Scanner sc = new Scanner(System.in);
         while (sc.hasNext()) {
+            String errorInfo = null;
             String str = sc.nextLine();
             CalculatorFacade calculatorFacade = (CalculatorFacade) ApplicationContext.getContext().get(CalculatorFacadeImpl.class);
             try {
+                // call service here
                 calculatorFacade.processCommand(str);
             } catch (ServiceException e) {
-                e.printStackTrace();
-            }finally {
+                errorInfo = e.getMessage();
+            } finally {
                 //[requirement] to meet the requirement
                 // 1. print stack once a line is operated
                 // 2. print stack after warning displayed
-                System.out.println("stack:" + commandQueryService.queryStack());
+                errorInfo = errorInfo == null ? "" : errorInfo + "\n";
+                String stackInfo = "stack:" + commandQueryService.queryStack();
+                String rstMsg = errorInfo + stackInfo;
+                System.out.println(rstMsg);
             }
-
 
 
         }

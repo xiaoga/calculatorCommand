@@ -3,7 +3,6 @@ package com.jay.calculator.command.cmd;
 import com.jay.calculator.command.dal.DataDao;
 import com.jay.calculator.command.dal.DataDaoImpl;
 import com.jay.calculator.command.dal.UndoBean;
-import com.jay.calculator.command.model.CommandNumber;
 import com.jay.calculator.command.model.ParamPairBean;
 import com.jay.calculator.common.exception.ErrorCodeEnum;
 import com.jay.calculator.common.exception.ServiceException;
@@ -22,14 +21,17 @@ public class CalculateCommandBase {
 
     protected void getParamsForCalculate(ParamPairBean paramPairBean, UndoBean undoBean) throws ServiceException {
         DataDao dataDao = (DataDao) ApplicationContext.getContext().get(DataDaoImpl.class);
-
-        String secondElement = this.getSingleParamFromStack(undoBean);
-        String firstElement = this.getSingleParamFromStack(undoBean);
-        BigDecimal secondNumber = this.parseElementToBigDecimal(secondElement);
-        BigDecimal firstNumber = this.parseElementToBigDecimal(firstElement);
-        paramPairBean.setFirstNumber(firstNumber);
-        paramPairBean.setSecondNumber(secondNumber);
-
+        try {
+            String secondElement = this.getSingleParamFromStack(undoBean);
+            String firstElement = this.getSingleParamFromStack(undoBean);
+            BigDecimal secondNumber = this.parseElementToBigDecimal(secondElement);
+            BigDecimal firstNumber = this.parseElementToBigDecimal(firstElement);
+            paramPairBean.setFirstNumber(firstNumber);
+            paramPairBean.setSecondNumber(secondNumber);
+        } catch (ServiceException e) {
+            this.recover(undoBean);
+            throw e;
+        }
     }
 
     protected boolean contextStackIsEmpty() {
@@ -54,8 +56,7 @@ public class CalculateCommandBase {
 
     private BigDecimal parseElementToBigDecimal(String element) throws ServiceException {
         try {
-            BigDecimal number = new BigDecimal(element);
-            return number;
+            return new BigDecimal(element);
         } catch (Exception exception) {
             throw new ServiceException(ErrorCodeEnum.ERROR_PARAM_IS_NOT_NUMBER, "number format exception, element is:[" + element + "]", exception);
         }
@@ -64,7 +65,7 @@ public class CalculateCommandBase {
     /*the method below deal with both contextStack and undoStack*/
     protected String getSingleParamFromStack(UndoBean undoBean) throws ServiceException {
         DataDao dataDao = (DataDao) ApplicationContext.getContext().get(DataDaoImpl.class);
-        String element = (String) dataDao.popFromStack();
+        String element = dataDao.popFromStack();
         undoBean.getResultOutStack().push(element);
         return element;
     }
@@ -75,7 +76,7 @@ public class CalculateCommandBase {
         boolean rstExist = rst != null;
         if (rstExist) {
             undoBean.getResultInStack().push(rst);
-            dataDao.pushStack(rst.toString());
+            dataDao.pushStack(rst);
         }
     }
 
@@ -86,5 +87,24 @@ public class CalculateCommandBase {
         dataDao.pushUndoStack(undoBean);
     }
 
+    protected void takeOutResult(UndoBean undoBean) throws ServiceException {
+        while (!undoBean.getResultInStack().isEmpty()) {
+            boolean hasElementInStack = !this.contextStackIsEmpty();
+            if (hasElementInStack) {
+                String inStr = undoBean.getResultInStack().pop();
+                String rst = this.popFromStack();
+                boolean undoInfoMatch = inStr.equals(rst);
+                if (!undoInfoMatch) {
+                    throw new ServiceException(ErrorCodeEnum.ERROR_UNDO_INFO_MISMATCH, "undo param is:[" + inStr + "],stack param is:[" + rst + "]");
+                }
+            }
+        }
+    }
 
+    protected void recover(UndoBean undoBean) throws ServiceException {
+        while (!undoBean.getResultOutStack().isEmpty()) {
+            String inStr = undoBean.getResultOutStack().pop();
+            this.pushIntoStack(inStr);
+        }
+    }
 }

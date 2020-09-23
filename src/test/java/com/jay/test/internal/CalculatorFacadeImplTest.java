@@ -1,4 +1,4 @@
-package com.jay.test;
+package com.jay.test.internal;
 
 import com.jay.calculator.calculate.CalculatorFacade;
 import com.jay.calculator.calculate.CalculatorFacadeImpl;
@@ -8,17 +8,16 @@ import com.jay.calculator.command.dal.DataDao;
 import com.jay.calculator.command.dal.DataDaoImpl;
 import com.jay.calculator.common.exception.ServiceException;
 import com.jay.calculator.container.ApplicationContext;
+import com.jay.test.BaseTest;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.lang.reflect.InvocationTargetException;
 
 public class CalculatorFacadeImplTest extends BaseTest {
     private CommandQueryService commandQueryService;
     private DataDao dataDao;
 
     @Before
-    public void initContext() throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
+    public void initContext() {
         System.out.println(ApplicationContext.getContext());
         commandQueryService = (CommandQueryService) ApplicationContext.getContext().get(CommandQueryServiceImpl.class);
         dataDao = (DataDao) ApplicationContext.getContext().get(DataDaoImpl.class);
@@ -53,7 +52,6 @@ public class CalculatorFacadeImplTest extends BaseTest {
     private void runArray(String line) throws ServiceException {
         CalculatorFacade calculatorFacade = (CalculatorFacade) ApplicationContext.getContext().get(CalculatorFacadeImpl.class);
         calculatorFacade.processCommand(line);
-        // System.out.println("stack:" + commandQueryService.queryStack());
     }
 
     private void resetStacks() {

@@ -4,6 +4,8 @@ import com.jay.calculator.common.exception.ErrorCodeEnum;
 import com.jay.calculator.common.exception.ServiceException;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 //[requirement] to meet the requirement of 15 precision
 public class CommandNumber {
 
@@ -21,8 +23,9 @@ public class CommandNumber {
 
 
     private BigDecimal getBigDecimalByScale(int scale) throws ServiceException {
+        // check whether it is decimal, if no, throw exception
         try {
-            BigDecimal bigDecimal = new BigDecimal(this.strNumber);
+            new BigDecimal(this.strNumber);
         } catch (Exception exception) {
             throw new ServiceException(ErrorCodeEnum.ERROR_PARAM_IS_NOT_NUMBER, "current input is not number! input is:[" + this.strNumber + "]");
         }
@@ -32,8 +35,7 @@ public class CommandNumber {
             String rightNumber = strNumber.substring(strNumber.indexOf(".") + 1);
             boolean rightNumberMoreThanScale = rightNumber.length() > scale;
             if (rightNumberMoreThanScale) {
-                String resultString = strNumber.substring(0,strNumber.indexOf(".") + 1+scale);
-                bigDecimal=new BigDecimal(resultString);
+                bigDecimal=bigDecimal.setScale(scale, RoundingMode.DOWN);
             }
         }
         return bigDecimal;

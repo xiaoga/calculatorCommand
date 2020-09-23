@@ -31,7 +31,7 @@ public class TestContainerStarter {
 
     private static List<Class> getBeanListFromConfig() {
         List<Class> beanList = new ArrayList<Class>();
-       RegisterBeanEnum[] registerBeanEnum = RegisterBeanEnum.values();
+        RegisterBeanEnum[] registerBeanEnum = RegisterBeanEnum.values();
         for (RegisterBeanEnum en : registerBeanEnum) {
             beanList.add(en.getCls());
         }

@@ -18,10 +18,12 @@ public class CommandLineCalculate implements CommandLine {
             try {
                 commandExecutor.execute(cmd);
             } catch (ServiceException e) {
-                boolean insufficientParam = e.getErrorCodeEnum().equals(ErrorCodeEnum.ERROR_INSUFFICIENT_PARAM);
+                boolean insufficientParam = ErrorCodeEnum.ERROR_INSUFFICIENT_PARAM.equals(e.getErrorCodeEnum());
                 if (insufficientParam) {
                     //[requirement] to meet the requirement of error printing
                     throw new ServiceException(ErrorCodeEnum.ERROR_INSUFFICIENT_PARAM, "operator <" + cmd + "> (position:" + i + "): insufficient parameters");
+                } else {
+                    throw e;
                 }
             }
         }
