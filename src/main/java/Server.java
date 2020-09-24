@@ -4,26 +4,35 @@ import com.jay.calculator.command.CommandQueryService;
 import com.jay.calculator.command.CommandQueryServiceImpl;
 import com.jay.calculator.common.exception.ServiceException;
 import com.jay.calculator.container.ApplicationContext;
+import com.jay.calculator.container.bean.AutoWired;
 import com.jay.calculator.container.bean.BeanFactory;
+import com.jay.calculator.container.bean.Service;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Scanner;
 
+@Service
 public class Server {
+
+    @AutoWired(type = CalculatorFacadeImpl.class)
+    private CalculatorFacade calculatorFacade;
+    @AutoWired(type = CommandQueryServiceImpl.class)
+    CommandQueryService commandQueryService;
 
     public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException, ServiceException, IOException {
         //init context here
         BeanFactory.initBean();
-        System.out.println("context is:" + ApplicationContext.getContext());
-        //get query service
-        CommandQueryService commandQueryService = (CommandQueryService) ApplicationContext.getContext().get(CommandQueryServiceImpl.class);
+        Server server = (Server) ApplicationContext.getContext().get(Server.class);
+        server.process();
+    }
+
+    public void process() throws ServiceException {
         //read input
         Scanner sc = new Scanner(System.in);
         while (sc.hasNextLine()) {
             String errorInfo = null;
             String str = sc.nextLine();
-            CalculatorFacade calculatorFacade = (CalculatorFacade) ApplicationContext.getContext().get(CalculatorFacadeImpl.class);
             try {
                 // call service here
                 calculatorFacade.processCommand(str);
@@ -38,8 +47,6 @@ public class Server {
                 String rstMsg = errorInfo + stackInfo;
                 System.out.println(rstMsg);
             }
-
-
         }
     }
 }

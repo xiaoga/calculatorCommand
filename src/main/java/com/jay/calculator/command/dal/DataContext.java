@@ -13,7 +13,7 @@ public class DataContext {
      */
     private static Stack<UndoBean> undoStack = new Stack<>();
 
-    /*setters and getters*/
+    /* getters*/
     public static Stack<String> getContextStack() {
         return contextStack;
     }

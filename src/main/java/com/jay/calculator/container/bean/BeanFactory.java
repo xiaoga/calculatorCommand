@@ -4,18 +4,52 @@ import com.jay.calculator.container.ApplicationContext;
 import com.jay.calculator.container.FilePathClassLoader;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class BeanFactory {
 
     public static final String CLASS_POSTFIX = ".class";
 
-    // init beans which have "@Service" annotation and put them into applicationContext
+
     public static void initBean() throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException, IOException {
+        createInstances();
+        autoWireBean();
+    }
+
+    private static void autoWireBean() throws IllegalAccessException {
+        Set<Class<?>> clsSet = ApplicationContext.getContext().keySet();
+        for (Class<?> cls : clsSet) {
+            wireBeanWithAutoWiredAnnotation(cls);
+        }
+    }
+
+    private static void wireBeanWithAutoWiredAnnotation(Class<?> cls) throws IllegalAccessException {
+        Field fields[] = cls.getDeclaredFields();
+        Object instance = ApplicationContext.getContext().get(cls);
+        for (Field field : fields) {
+            processField(instance, field);
+        }
+    }
+
+    private static void processField(Object instance, Field field) throws IllegalAccessException {
+        AutoWired autoWiredAnnotation = field.getAnnotation(AutoWired.class);
+        boolean existAutoWiredAnnotation = autoWiredAnnotation != null;
+        if (existAutoWiredAnnotation) {
+            Class<?> referenceBeanCls = autoWiredAnnotation.type();
+            Object bean = ApplicationContext.getContext().get(referenceBeanCls);
+            field.setAccessible(true);
+            field.set(instance, bean);
+        }
+    }
+
+    // init beans which have "@Service" annotation and put them into applicationContext
+    private static void createInstances() throws IOException, ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
         List<Class<?>> classList = getClassListFromFileSystem();
-        for (Class<?> cls: classList) {
+        for (Class<?> cls : classList) {
             initBeanWithServiceAnnotation(cls);
         }
     }

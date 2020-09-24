@@ -20,7 +20,6 @@ public class FilePathClassLoader {
         }else {
             fileList=getFileListOutOfJar(pathUrl);
         }
-        System.out.println(fileList);
         return fileList;
     }
 

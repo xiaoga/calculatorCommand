@@ -1,7 +1,9 @@
 package com.jay.test.application;
 
 import com.jay.calculator.container.ApplicationContext;
+import com.jay.calculator.container.bean.BeanFactory;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +13,9 @@ public class TestContainerStarter {
     /**
      * init method to init context
      */
-    public static void initContext() throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+    public static void initContext() throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException, IOException, ClassNotFoundException {
         registerBeanIntoContainer();
+        BeanFactory.initBean();
     }
 
     /**

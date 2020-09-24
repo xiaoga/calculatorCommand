@@ -25,7 +25,7 @@ public class testContainerStarterTest extends BaseTest {
     }
 
     @Test
-    public void testApplicationContextInit() throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
+    public void testApplicationContextInit() throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException, IOException {
         TestContainerStarter.initContext();
         System.out.println(ApplicationContext.getContext());
         Assert.assertNotNull(ApplicationContext.getContext());
