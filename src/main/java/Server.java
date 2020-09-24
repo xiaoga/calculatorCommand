@@ -20,7 +20,7 @@ public class Server {
         CommandQueryService commandQueryService = (CommandQueryService) ApplicationContext.getContext().get(CommandQueryServiceImpl.class);
         //read input
         Scanner sc = new Scanner(System.in);
-        while (sc.hasNext()) {
+        while (sc.hasNextLine()) {
             String errorInfo = null;
             String str = sc.nextLine();
             CalculatorFacade calculatorFacade = (CalculatorFacade) ApplicationContext.getContext().get(CalculatorFacadeImpl.class);

@@ -14,7 +14,7 @@ import java.util.List;
 public class CommandLineCalculate implements CommandLine {
     @Override
     public void doCommand(String commandLine) throws ServiceException {
-        List<String> operationList = new ArrayList<String>();
+        List<String> operationList = new ArrayList<>();
         String[] commandArr = commandLine.split(" ");
         for (int i = 0; i < commandArr.length; i++) {
             String cmd = commandArr[i];
@@ -37,8 +37,9 @@ public class CommandLineCalculate implements CommandLine {
     private int getIndexOfOperationFromString(String command, List<String> operationList) {
         int index = 0;
         for (String operation : operationList) {
-            index = command.indexOf(operation, index + 1);
+            index = command.indexOf(operation, index) + 1;
+            System.out.println("operation is:" + operation + ";list is:" + operationList + ";command is:" + command + "index is:" + index);
         }
-        return index + 1;
+        return index;
     }
 }
