@@ -157,3 +157,17 @@
 /target/test-classes/com/jay/test/internal/TestNumber.class
 /target/calculatorDemo-2.0-SNAPSHOT-jar-with-dependencies/com/jay/calculator/command/dal/UndoBean.class
 /target/test-classes/com/jay/test/OtherCasesTest.class
+/target/surefire-reports/com.jay.test.internal.CalculatorFacadeImplTest.txt
+/target/surefire-reports/com.jay.test.internal.CommandExecutorImplTest.txt
+/target/surefire-reports/com.jay.test.internal.TestBigDecimal.txt
+/target/surefire-reports/com.jay.test.internal.testContainerStarterTest.txt
+/target/surefire-reports/com.jay.test.internal.TestNumber.txt
+/target/surefire-reports/com.jay.test.OtherCasesTest.txt
+/target/surefire-reports/com.jay.test.SpecialCasesTest.txt
+/target/surefire-reports/TEST-com.jay.test.internal.CalculatorFacadeImplTest.xml
+/target/surefire-reports/TEST-com.jay.test.internal.CommandExecutorImplTest.xml
+/target/surefire-reports/TEST-com.jay.test.internal.TestBigDecimal.xml
+/target/surefire-reports/TEST-com.jay.test.internal.testContainerStarterTest.xml
+/target/surefire-reports/TEST-com.jay.test.internal.TestNumber.xml
+/target/surefire-reports/TEST-com.jay.test.OtherCasesTest.xml
+/target/surefire-reports/TEST-com.jay.test.SpecialCasesTest.xml
